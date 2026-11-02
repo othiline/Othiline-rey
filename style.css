@@ -1,0 +1,508 @@
+/* Couleurs du site : modifiez-les ici, tout change d'un coup */
+:root {
+  --bordeaux: #6d1a2b;
+  --bordeaux-clair: #8e2a3f;
+  --creme: #faf3e3;
+  --olive: #6b7a3a;
+  --lavande: #b9a7e0;
+  --texte: #3a2a2e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.6;
+  color: var(--texte);
+  background-color: var(--creme);
+}
+
+/* En-tête avec motif de dentelle rose clair */
+header {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23f4c2d0' stroke-width='1' opacity='0.55'%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3Ccircle cx='30' cy='30' r='5'/%3E%3Ccircle cx='0' cy='0' r='12'/%3E%3Ccircle cx='60' cy='0' r='12'/%3E%3Ccircle cx='0' cy='60' r='12'/%3E%3Ccircle cx='60' cy='60' r='12'/%3E%3Cpath d='M30 18 Q36 24 30 30 Q24 24 30 18 M42 30 Q36 36 30 30 Q36 24 42 30 M30 42 Q24 36 30 30 Q36 36 30 42 M18 30 Q24 24 30 30 Q24 36 18 30'/%3E%3C/g%3E%3Cg fill='%23f4c2d0' opacity='0.6'%3E%3Ccircle cx='30' cy='6' r='1.5'/%3E%3Ccircle cx='30' cy='54' r='1.5'/%3E%3Ccircle cx='6' cy='30' r='1.5'/%3E%3Ccircle cx='54' cy='30' r='1.5'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(135deg, var(--bordeaux), var(--bordeaux-clair));
+  background-size: 60px 60px, cover;
+  color: var(--creme);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-bottom: 4px solid var(--olive);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+header .sous-titre {
+  margin: 0.5rem 0 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* Mise en page : 3 colonnes
+   - colonne 1 : les onglets, collés à gauche
+   - colonne 2 : l'encadré principal, toujours centré
+   - colonne 3 : vide (même largeur que la colonne 1, pour garder le centrage) */
+.mise-en-page {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(0, 800px) minmax(180px, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+/* Menu vertical tout à gauche */
+nav {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 180px;
+  position: sticky;
+  top: 1rem;
+}
+
+.onglet {
+  background: white;
+  color: var(--bordeaux);
+  border: none;
+  border-left: 5px solid var(--lavande);
+  padding: 0.9rem 1.2rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(109, 26, 43, 0.1);
+  transition: background 0.3s, transform 0.2s, color 0.3s;
+}
+
+.onglet:hover {
+  background: var(--lavande);
+  transform: translateX(4px);
+}
+
+.onglet.actif {
+  background: var(--bordeaux);
+  color: var(--creme);
+  border-left-color: var(--olive);
+}
+
+/* Encadré principal : au centre de la page */
+main {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+/* Les pages sont cachées, sauf celle qui est active */
+.page {
+  display: none;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border-top: 5px solid var(--olive);
+  box-shadow: 0 6px 20px rgba(109, 26, 43, 0.15);
+}
+
+.page.actif {
+  display: block;
+  animation: apparition 0.4s ease;
+}
+
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  color: var(--bordeaux);
+  margin-bottom: 0.8rem;
+}
+
+/* Titre de l'accueil centré */
+#accueil h2 {
+  text-align: center;
+}
+
+p {
+  margin-bottom: 0.8rem;
+}
+
+/* Phrase d'accroche de l'accueil */
+.slogan {
+  text-align: center;
+  font-family: inherit;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--bordeaux);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--bordeaux-clair);
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--olive);
+}
+
+/* Date et lieu (accueil) */
+.evenement {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.bloc-evenement {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.2rem;
+  padding: 1.2rem;
+  background: var(--creme);
+  border-left: 5px solid var(--lavande);
+  border-radius: 10px;
+}
+
+.bloc-evenement .icone {
+  font-size: 1.8rem;
+}
+
+.bloc-evenement .etiquette {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--olive);
+  font-weight: bold;
+}
+
+.bloc-evenement .valeur {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--bordeaux);
+}
+
+/* Bloc Lieu cliquable vers Google Maps */
+.bloc-lien {
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid transparent;
+  border-left: 5px solid var(--lavande);
+  transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.bloc-lien:hover {
+  transform: translateY(-3px);
+  border-color: var(--bordeaux);
+  box-shadow: 0 6px 16px rgba(109, 26, 43, 0.2);
+  color: inherit;
+}
+
+.bloc-lien .indice {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--bordeaux-clair);
+}
+
+/* Encadré (informations et accueil) */
+.encadre {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--creme);
+  border: 2px solid var(--bordeaux);
+  border-left: 8px solid var(--bordeaux);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(109, 26, 43, 0.12);
+}
+
+.encadre p {
+  font-size: 1.1rem;
+}
+
+.encadre strong {
+  color: var(--bordeaux);
+}
+
+.bouton-mail {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.5rem 1rem;
+  background: var(--olive);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+  overflow-wrap: anywhere;
+}
+
+.bouton-mail:hover {
+  background: var(--bordeaux);
+  color: white;
+}
+
+/* Encadré de l'accueil : marge en bas et bouton vers Informations */
+.encadre-accueil {
+  margin-bottom: 1.5rem;
+}
+
+.lien-onglet {
+  display: block;
+  margin-top: 1rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--bordeaux);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.lien-onglet:hover {
+  color: var(--olive);
+}
+
+/* Zone pour une image */
+.zone-image {
+  position: relative;
+  margin-bottom: 1.5rem;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--creme);
+  border: 3px dashed var(--lavande);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.zone-image .texte-zone {
+  color: var(--bordeaux);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.zone-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: white;
+}
+
+/* Carrousel de photos */
+.carrousel {
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(109, 26, 43, 0.2);
+}
+
+.diapos {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.diapo {
+  min-width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, var(--bordeaux), var(--lavande));
+}
+
+.diapo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fleche {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.fleche:hover {
+  background: var(--bordeaux);
+}
+
+.fleche.gauche { left: 10px; }
+.fleche.droite { right: 10px; }
+
+.points {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.point {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(250, 243, 227, 0.7);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.point.actif {
+  background: var(--lavande);
+  transform: scale(1.3);
+}
+
+/* ===== Page Contact : 3 encadrés l'un sous l'autre ===== */
+.cartes-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.carte-contact {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 1.5rem;
+  background: var(--creme);
+  border: 2px solid var(--lavande);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--texte);
+  transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.carte-contact:hover {
+  transform: translateY(-3px);
+  border-color: var(--bordeaux);
+  box-shadow: 0 6px 16px rgba(109, 26, 43, 0.2);
+  color: var(--texte);
+}
+
+/* Pastille de l'icône (à gauche) */
+.carte-contact .icone {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.8rem;
+  height: 3.8rem;
+  font-size: 1.8rem;
+  line-height: 1;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(109, 26, 43, 0.12);
+}
+
+/* Texte (à droite) : prend la place restante et passe à la ligne si besoin */
+.texte-carte {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.carte-contact .etiquette {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--olive);
+  font-weight: bold;
+}
+
+.carte-contact .valeur {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--bordeaux);
+  overflow-wrap: anywhere;
+}
+
+/* Logo Instagram : pastille dégradée, symbole blanc */
+.carte-contact .logo-instagram {
+  background: linear-gradient(45deg, #f9a03f, #e1306c 50%, #833ab4);
+  box-shadow: 0 4px 10px rgba(225, 48, 108, 0.35);
+}
+
+.logo-instagram svg {
+  display: block;
+}
+
+.carte-instagram:hover {
+  border-color: #e1306c;
+  box-shadow: 0 6px 16px rgba(225, 48, 108, 0.25);
+}
+
+/* Pied de page */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--bordeaux);
+}
+
+/* Petit écran (téléphone) : colonnes plus étroites, les 3 onglets restent à gauche */
+@media (max-width: 860px) {
+  .mise-en-page {
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  nav {
+    width: 110px;
+  }
+
+  .onglet {
+    padding: 0.7rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .carte-contact {
+    padding: 1.1rem;
+    gap: 0.9rem;
+  }
+
+  .carte-contact .icone {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}

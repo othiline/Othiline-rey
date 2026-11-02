@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VP Heritage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>VP Heritage</h1>
+    <p class="sous-titre">Le vêtement provençal entre tradition et modernité</p>
+  </header>
+
+  <div class="mise-en-page">
+    <nav>
+      <button class="onglet actif" data-cible="accueil">Accueil</button>
+      <button class="onglet" data-cible="informations">Informations</button>
+      <button class="onglet" data-cible="contact">Contact</button>
+    </nav>
+
+    <main>
+      <section id="accueil" class="page actif">
+        <h2>VP Heritage</h2>
+        <p class="slogan">Une exposition qui réinvente le vêtement traditionnel provençal</p>
+
+        <div class="evenement">
+          <div class="bloc-evenement">
+            <span class="icone">📅</span>
+            <span class="etiquette">Date</span>
+            <span class="valeur">21 et 22 novembre 2026</span>
+          </div>
+
+          <!-- Lieu : cliquable, ouvre Google Maps -->
+          <a href="https://www.google.com/maps/search/?api=1&query=Chapelle+de+l%27Oratoire+Avignon" target="_blank" rel="noopener noreferrer" class="bloc-evenement bloc-lien">
+            <span class="icone">📍</span>
+            <span class="etiquette">Lieu</span>
+            <span class="valeur">Chapelle de l'Oratoire, Avignon</span>
+            <span class="indice">Voir sur Google Maps →</span>
+          </a>
+        </div>
+
+        <!-- Encadré qui renvoie vers la page Informations -->
+        <div class="encadre encadre-accueil">
+          <p>Transmets tes œuvres avant le <strong>16 novembre 2026</strong> et envoie le tout à l'adresse mail suivante :</p>
+          <a href="mailto:vetement-provencal@gmail.com" class="bouton-mail">vetement-provencal@gmail.com</a>
+          <button class="lien-onglet" data-cible="informations">Voir les informations &rarr;</button>
+        </div>
+
+        <!-- Zone pour une image -->
+        <div class="zone-image">
+          <span class="texte-zone">🖼️ Votre image ici</span>
+          <img src="images/affiche.jpg" alt="Affiche de l'événement" onerror="this.style.display='none'">
+        </div>
+
+        <div class="carrousel">
+          <div class="diapos">
+            <div class="diapo">
+              <img src="images/photo1.jpg" alt="Photo 1">
+            </div>
+            <div class="diapo">
+              <img src="images/photo2.jpg" alt="Photo 2">
+            </div>
+            <div class="diapo">
+              <img src="images/photo3.jpg" alt="Photo 3">
+            </div>
+          </div>
+
+          <button class="fleche gauche" aria-label="Photo précédente">&#10094;</button>
+          <button class="fleche droite" aria-label="Photo suivante">&#10095;</button>
+
+          <div class="points">
+            <button class="point actif" aria-label="Photo 1"></button>
+            <button class="point" aria-label="Photo 2"></button>
+            <button class="point" aria-label="Photo 3"></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="informations" class="page">
+        <h2>Informations</h2>
+        <p>Retrouvez ici toutes les informations pratiques.</p>
+
+        <div class="encadre">
+          <p>Transmets tes œuvres avant le <strong>16 novembre 2026</strong> et envoie le tout à l'adresse mail suivante :</p>
+          <a href="mailto:vetement-provencal@gmail.com" class="bouton-mail">vetement-provencal@gmail.com</a>
+        </div>
+      </section>
+
+      <section id="contact" class="page">
+        <h2>Contact</h2>
+        <p>N'hésitez pas à nous contacter :</p>
+
+        <div class="cartes-contact">
+
+          <!-- Encadré 1 : téléphone -->
+          <a href="tel:+33600000000" class="carte-contact">
+            <span class="icone">📞</span>
+            <span class="texte-carte">
+              <span class="etiquette">Téléphone</span>
+              <span class="valeur">06 00 00 00 00</span>
+            </span>
+          </a>
+
+          <!-- Encadré 2 : adresse mail -->
+          <a href="mailto:vetement-provencal@gmail.com" class="carte-contact">
+            <span class="icone">✉️</span>
+            <span class="texte-carte">
+              <span class="etiquette">Adresse mail</span>
+              <span class="valeur">vetement-provencal@gmail.com</span>
+            </span>
+          </a>
+
+          <!-- Encadré 3 : Instagram -->
+          <a href="https://www.instagram.com/vp_heritage" target="_blank" rel="noopener noreferrer" class="carte-contact carte-instagram">
+            <span class="icone logo-instagram">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </span>
+            <span class="texte-carte">
+              <span class="etiquette">Instagram</span>
+              <span class="valeur">Vp_heritage</span>
+            </span>
+          </a>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>© 2026 - VP Heritage</p>
+  </footer>
+
+  <script>
+    // ----- Menu à onglets -----
+    const onglets = document.querySelectorAll('.onglet');
+    const pages = document.querySelectorAll('.page');
+
+    function afficherPage(id) {
+      onglets.forEach(o => o.classList.toggle('actif', o.dataset.cible === id));
+      pages.forEach(p => p.classList.toggle('actif', p.id === id));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Boutons du menu ET boutons qui renvoient vers une page (ex : "Voir les informations")
+    document.querySelectorAll('[data-cible]').forEach(function (bouton) {
+      bouton.addEventListener('click', function () {
+        afficherPage(bouton.dataset.cible);
+      });
+    });
+
+    // ----- Carrousel de photos -----
+    const carrousel = document.querySelector('.carrousel');
+    const diapos = document.querySelector('.diapos');
+    const points = document.querySelectorAll('.point');
+    const total = points.length;
+    let index = 0;
+    let minuteur;
+
+    function afficher(n) {
+      index = (n + total) % total;
+      diapos.style.transform = 'translateX(-' + (index * 100) + '%)';
+      points.forEach(function (p, i) {
+        p.classList.toggle('actif', i === index);
+      });
+    }
+
+    function demarrerAuto() {
+      arreterAuto();
+      minuteur = setInterval(function () { afficher(index + 1); }, 4000);
+    }
+
+    function arreterAuto() {
+      clearInterval(minuteur);
+    }
+
+    document.querySelector('.fleche.gauche').addEventListener('click', function () {
+      afficher(index - 1);
+    });
+
+    document.querySelector('.fleche.droite').addEventListener('click', function () {
+      afficher(index + 1);
+    });
+
+    points.forEach(function (point, i) {
+      point.addEventListener('click', function () { afficher(i); });
+    });
+
+    carrousel.addEventListener('mouseenter', arreterAuto);
+    carrousel.addEventListener('mouseleave', demarrerAuto);
+
+    demarrerAuto();
+  </script>
+</body>
+</html>
