@@ -7,7 +7,7 @@
   --lavande: #b9a7e0;
   --texte: #3a2a2e;
 }
-/* permet de faire les onglet/ les séctions en rectangles */
+/* fort des séctions */
 * {
   box-sizing: border-box; 
   padding: 0;
@@ -20,7 +20,7 @@ body {
   background-color: var(--creme);
 }
 
-/*En-tête avec motif de dentelle rose clair */
+/*couleur et motif de l'en-tête */
 header {
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23f4c2d0' stroke-width='1' opacity='0.55'%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3Ccircle cx='30' cy='30' r='5'/%3E%3Ccircle cx='0' cy='0' r='12'/%3E%3Ccircle cx='60' cy='0' r='12'/%3E%3Ccircle cx='0' cy='60' r='12'/%3E%3Ccircle cx='60' cy='60' r='12'/%3E%3Cpath d='M30 18 Q36 24 30 30 Q24 24 30 18 M42 30 Q36 36 30 30 Q36 24 42 30 M30 42 Q24 36 30 30 Q36 36 30 42 M18 30 Q24 24 30 30 Q24 36 18 30'/%3E%3C/g%3E%3Cg fill='%23f4c2d0' opacity='0.6'%3E%3Ccircle cx='30' cy='6' r='1.5'/%3E%3Ccircle cx='30' cy='54' r='1.5'/%3E%3Ccircle cx='6' cy='30' r='1.5'/%3E%3Ccircle cx='54' cy='30' r='1.5'/%3E%3C/g%3E%3C/svg%3E"),
@@ -31,7 +31,7 @@ header {
   padding: 2.5rem 1rem;
   border-bottom: 4px solid var(--olive);
 }
-/*Taille et police du titre de l'en-tête*/
+/*Taille, police et ombre du titre de l'en-tête*/
 header h1 {
   font-size: 2.5rem;
   letter-spacing: 3px;
@@ -48,7 +48,10 @@ header .sous-titre {
   opacity: 0.9;
 }
 
-/* Mise en page en 3 colonnes: colonne 1 : les onglets, à gauche; colonne 2 : l'encadré principal, centré; colonne 3 : vide mais même largeur les autres pour garder la symétrie */
+/* Mise en page des 3 colonnes: 
+colonne 1 : les onglets, à gauche
+colonne 2 : l'encadré principal, au centre
+colonne 3 : sur la droite, vide mais même largeur que les autres pour garder la symétrie */
 .mise-en-page {
   display: grid;
   grid-template-columns: minmax(180px, 1fr) minmax(0, 800px) minmax(180px, 1fr);
@@ -58,7 +61,7 @@ header .sous-titre {
   padding: 0 1rem;
 }
 
-/* Menu vertical des 3 onglets tout à gauche */
+/*position du menu vertical des 3 onglets sur la gauche */
 nav {
   grid-column: 1;
   grid-row: 1;
@@ -70,7 +73,7 @@ nav {
   position: sticky;
   top: 1rem;
 }
-/*couleurs des 3 onglets sur la gauche*/
+/*couleurs du menu vertical des 3 onglets sur la gauche*/
 .onglet {
   background: white;
   color: var(--bordeaux);
@@ -86,12 +89,12 @@ nav {
   box-shadow: 0 2px 8px rgba(109, 26, 43, 0.1);
   transition: background 0.3s, transform 0.2s, color 0.3s;
 }
-/*couleur de fond de l'onglet non actif (des 3 onglets)*/
+/*couleur de fond de l'onglet non actif quand on clique ou passe la souris dessus (menu des 3 onglets)*/
 .onglet:hover {
   background: var(--lavande);
   transform: translateX(4px);
 }
-/*couleur de l'onglet actif (des 3 onglets)*/
+/*couleur de l'onglet actif (menu des 3 onglets)*/
 .onglet.actif {
   background: var(--bordeaux);
   color: var(--creme);
@@ -114,7 +117,7 @@ main {
   border-top: 5px solid var(--olive);
   box-shadow: 0 6px 20px rgba(109, 26, 43, 0.15);
 }
-/*manière d'apparition de la page active*/
+/*effet d'apparition de la page active*/
 .page.actif {
   display: block;
   animation: apparition 0.4s ease;
@@ -130,7 +133,7 @@ h2 {
   margin-bottom: 0.8rem;
 }
 
-/*titre de l'accueil centré*/
+/*titre de la page d'accueil au centre*/
 #accueil h2 {
   text-align: center;
 }
@@ -139,7 +142,7 @@ p {
   margin-bottom: 0.8rem;
 }
 
-/*phrase d'accroche de l'accueil*/
+/*sous-titre de la page d'accueil*/
 .slogan {
   text-align: center;
   font-family: inherit;
@@ -153,7 +156,7 @@ a {
   color: var(--bordeaux-clair);
   font-weight: bold;
 }
-
+/*couleur de la bordure, en haut, de l'encadré */
 a:hover {
   color: var(--olive);
 }
@@ -165,7 +168,7 @@ a:hover {
   flex-wrap: wrap;
   margin: 1.5rem 0;
 }
-/*couleur et positon du texte dans les encadrés*/
+/*couleur et positon des encadrés*/
 .bloc-evenement {
   flex: 1;
   min-width: 200px;
@@ -179,11 +182,11 @@ a:hover {
   border-left: 5px solid var(--lavande);
   border-radius: 10px;
 }
-/*taille des icone calendrier et point dans les encadrés*/
+/*taille des icone Calendrier et Point dans les encadrés*/
 .bloc-evenement .icone {
   font-size: 1.8rem;
 }
-/*taille et couleur de date et lieu dans les encadrés*/
+/*taille et couleur du titre (date et lieu) dans les encadrés*/
 .bloc-evenement .etiquette {
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -221,7 +224,7 @@ a:hover {
   color: var(--bordeaux-clair);
 }
 
-/* couleur et taille de l'encadré du dessous*/
+/* couleur et taille du troisème encadré, dessous*/
 .encadre {
   margin-top: 1.5rem;
   padding: 1.5rem;

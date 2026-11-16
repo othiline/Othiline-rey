@@ -1,12 +1,12 @@
 <!DOCTYPE html> 
 <html lang="fr">
-   <!-- style du titre de l'onglet dans la barre de recherche-->
+  <!--titre de l'onglet dans la barre de recherche-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VP Heritage</title>
   <link rel="stylesheet" href="style.css">
-   <!-- titre et sous-titres du site -->
+<!--titre et sous-titres du site dans l'encadré en haut-->
 </head>
 <body>
   <header>
@@ -20,12 +20,12 @@
       <button class="onglet" data-cible="informations">Informations</button>
       <button class="onglet" data-cible="contact">Contact</button>
     </nav>
-     <!-- page d'accueil: titre et sous-titre -->
+ <!-- page d'accueil: titre et sous-titre -->
         <main>
       <section id="accueil" class="page actif">
         <h2>VP Heritage</h2>
         <p class="slogan">Une exposition qui réinvente le vêtement traditionnel provençal</p>
- <!-- Lieu : cliquable et qui ouvre Google Maps -->
+ <!-- texte et icône du premier encadré de la page d'accueil-->
         <div class="evenement">
           <div class="bloc-evenement">
             <span class="icone">📅</span>
@@ -33,7 +33,7 @@
             <span class="valeur">21 et 22 novembre 2026</span>
           </div>
 
-          <!-- Lieu : cliquable et qui ouvre Google Maps -->
+ <!-- encadré du lieu : cliquable et qui ouvre Google Maps -->
           <a href="https://www.google.com/maps/search/?api=1&query=Chapelle+de+l%27Oratoire+Avignon" target="_blank" rel="noopener noreferrer" class="bloc-evenement bloc-lien">
             <span class="icone">📍</span>
             <span class="etiquette">Lieu</span>
@@ -42,19 +42,19 @@
           </a>
         </div>
 
-        <!-- Encadré qui renvoie vers la page Informations -->
+ <!-- encadré de la page Informations -->
         <div class="encadre encadre-accueil">
           <p>Transmets tes œuvres avant le <strong>16 novembre 2026</strong> et envoie le tout à l'adresse mail suivante :</p>
           <a href="mailto:vetement-provencal@gmail.com" class="bouton-mail">vetement-provencal@gmail.com</a>
           <button class="lien-onglet" data-cible="informations">Voir les informations &rarr;</button>
         </div>
 
-        <!-- Zone pour une image -->
+ <!--texte de la zone pour une image -->
         <div class="zone-image">
           <span class="texte-zone">🖼️ Votre image ici</span>
           <img src="images/affiche.jpg" alt="Affiche de l'événement" onerror="this.style.display='none'">
         </div>
-
+ <!-- noms des emplacements pour le carrousel-->
         <div class="carrousel">
           <div class="diapos">
             <div class="diapo">
@@ -67,10 +67,10 @@
               <img src="images/photo3.jpg" alt="Photo 3">
             </div>
           </div>
-
+ <!-- fonction des flèches du carrousel-->
           <button class="fleche gauche" aria-label="Photo précédente">&#10094;</button>
           <button class="fleche droite" aria-label="Photo suivante">&#10095;</button>
-
+ <!-- fonction des points en bas du carrousel-->
           <div class="points">
             <button class="point actif" aria-label="Photo 1"></button>
             <button class="point" aria-label="Photo 2"></button>
@@ -78,24 +78,24 @@
           </div>
         </div>
       </section>
-
+ <!-- texte de l'onglet Informations-->
       <section id="informations" class="page">
         <h2>Informations</h2>
         <p>Retrouvez ici toutes les informations pratiques.</p>
-
+ <!-- texte de l'encadré de l'onglet informations-->
         <div class="encadre">
           <p>Transmets tes œuvres avant le <strong>16 novembre 2026</strong> et envoie le tout à l'adresse mail suivante :</p>
           <a href="mailto:vetement-provencal@gmail.com" class="bouton-mail">vetement-provencal@gmail.com</a>
         </div>
       </section>
-
+ <!-- texte de l'onglet contact-->
       <section id="contact" class="page">
         <h2>Contact</h2>
         <p>N'hésitez pas à nous contacter :</p>
 
         <div class="cartes-contact">
 
-          <!-- Encadré 1 : téléphone -->
+ <!-- texte de l'encadré 1 : téléphone -->
           <a href="tel:+33600000000" class="carte-contact">
             <span class="icone">📞</span>
             <span class="texte-carte">
@@ -104,7 +104,7 @@
             </span>
           </a>
 
-          <!-- Encadré 2 : adresse mail -->
+ <!-- titre de l'encadré 2 : adresse mail -->
           <a href="mailto:vetement-provencal@gmail.com" class="carte-contact">
             <span class="icone">✉️</span>
             <span class="texte-carte">
@@ -113,7 +113,7 @@
             </span>
           </a>
 
-          <!-- Encadré 3 : Instagram -->
+ <!-- titre de l'encadré 3: Instagram -->
           <a href="https://www.instagram.com/vp_heritage" target="_blank" rel="noopener noreferrer" class="carte-contact carte-instagram">
             <span class="icone logo-instagram">
               <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -132,13 +132,13 @@
       </section>
     </main>
   </div>
-
+<!--nom du pied de page-->
   <footer>
     <p>© 2026 - VP Heritage</p>
   </footer>
 
   <script>
-    // ----- Menu à onglets -----
+ <!-- menu à onglet-->
     const onglets = document.querySelectorAll('.onglet');
     const pages = document.querySelectorAll('.page');
 
@@ -148,14 +148,14 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Boutons du menu ET boutons qui renvoient vers une page (ex : "Voir les informations")
+ <!--boutons du menu et boutons qui renvoient vers une page  -->
     document.querySelectorAll('[data-cible]').forEach(function (bouton) {
       bouton.addEventListener('click', function () {
         afficherPage(bouton.dataset.cible);
       });
     });
 
-    // ----- Carrousel de photos -----
+ <!--carrousel de photos -->
     const carrousel = document.querySelector('.carrousel');
     const diapos = document.querySelector('.diapos');
     const points = document.querySelectorAll('.point');
